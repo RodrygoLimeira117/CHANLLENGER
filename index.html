@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título do Seu Site</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Challenger ONE</h1>
+
+        <input type="text" id="inputText" placeholder="Digite o texto aqui...">
+
+        <div class="buttons">
+            <button onclick="criptografar()">Criptografar</button>
+            <button onclick="descriptografar()">Descriptografar</button>
+        </div>
+
+        <div class="result" id="resultText"></div>
+    </div>
+
+    <footer>
+        Desenvolvido por Rodrigo Limeira
+    </footer>
+
+    <script>
+        function criptografar() {
+            const inputText = document.getElementById('inputText').value;
+            const resultText = btoa(inputText); // Exemplo simples usando Base64
+            document.getElementById('resultText').innerText = resultText;
+        }
+
+        function descriptografar() {
+            const inputText = document.getElementById('inputText').value;
+            try {
+                const resultText = atob(inputText); // Exemplo simples usando Base64
+                document.getElementById('resultText').innerText = resultText;
+            } catch (e) {
+                document.getElementById('resultText').innerText = "Texto inválido para descriptografar.";
+            }
+        }
+    </script>
+
+</body>
+</html>
